@@ -1,0 +1,11 @@
+.filter-green {
+    filter: invert(98%) sepia(100%) saturate(1%) hue-rotate(299deg) brightness(104%) contrast(101%);
+    margin: 10px;
+}
+
+.navbar-custom {
+          background-color: #141414;
+}
+
+
+

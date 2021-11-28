@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap');
+.cd-bod{ 
+    border-style: none !important;
+    background-color: #1B1B1B !important;
+   
+}
+.btn-hov:hover{
+    background-color: #808080 !important;
+    border-style: none !important;
+}
+
+.img-fluid{
+    height: 400px !important;
+}
+
+.text-b{
+    font-weight: bold !important;
+}
+
+
+.card-body {
+    align-items: center !important;
+}

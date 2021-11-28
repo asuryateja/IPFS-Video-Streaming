@@ -1,0 +1,9 @@
+body {
+    background-color: #1B1B1B;
+    color: #FFFFFF;
+    overflow: hidden;
+    font-family: 'Press Start 2P', cursive;
+    font-family: 'Space Mono', monospace;
+}
+
+.dfss {color: white !important;}
