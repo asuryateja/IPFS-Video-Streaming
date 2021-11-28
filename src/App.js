@@ -4,6 +4,7 @@ import Main from './components/Main';
 import Upload from './components/Upload';
 import { Routes, Route} from "react-router-dom";
 import Stream from './components/Stream';
+import Photo from './components/Photo';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/stream" element={<Stream />} />
+        <Route path='/photo' element={<Photo />} />
       </Routes>
      
     </div>

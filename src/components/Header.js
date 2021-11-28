@@ -16,10 +16,10 @@ function Header() {
                             loading="lazy"
                         /></Link>
                         <div class='d-flex flex-row'>
-                            
-                        <Link style={{ textDecoration: 'none' , fontWeight: 'bold', color: 'white', paddingRight: '15px'}} to='/stream'>Hash</Link>
-                        
                         <Link style={{ textDecoration: 'none' , fontWeight: 'bold', color: 'white', paddingLeft: '15px'}} to='/upload'>Upload</Link>
+                        <Link style={{ textDecoration: 'none' , fontWeight: 'bold', color: 'white', paddingLeft: '15px', paddingRight: '15px'}} to='/stream'>Video</Link>
+                        <Link style={{ textDecoration: 'none' , fontWeight: 'bold', color: 'white', paddingRight: '15px'}} to='/photo'>Photo</Link>
+                        
                         </div>
                 </div>
             </nav>

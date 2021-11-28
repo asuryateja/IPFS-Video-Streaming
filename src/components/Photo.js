@@ -1,12 +1,10 @@
-import React , {useState}from 'react'
-import ReactPlayer from 'react-player'
+import React, {useState}from 'react'
 
-
-function Stream() {
+function Photo() {
     const style = {
         margin: '0 auto'
     }
-    const [url, getUrl] = useState('QmbC9XpDX7k5NcZ7UH4RiXQAoRLj7yXQHNXMuGSigsdEsk');
+    const [url, getUrl] = useState('QmQdPv397hXgXYj7RLimTmXEHiQ3C257NUB8NSnW1H4dKE');
     const link = (e) => {
         const val = e.target.value;
         getUrl(val);
@@ -18,14 +16,15 @@ function Stream() {
         
     }
 
-    const videoUrl = `https://ipfs.io/ipfs/${url}`;
-    console.log(videoUrl)
+    const picUrl = `https://ipfs.io/ipfs/${url}`;
+    console.log(picUrl)
+
     return (
         <>
             <div class='container  pt-5'>
                 <div class="row">
 			        <div class="col-md-12 text-center align-items-center">
-                        <ReactPlayer style={style} width='750px' height='500px' url={videoUrl}  playing={true} controls={true}  />
+                    <img src={picUrl} class="img-fluid" alt="Responsive image" />
                         <form class="form-inline  " onSubmit={handleSubmit} >
                             <div class="form-group mb-2">
                                 <label htmlFor="staticEmail2" class="sr-only pt-5">Enter Hash:</label>
@@ -42,4 +41,4 @@ function Stream() {
     )
 }
 
-export default Stream
+export default Photo
