@@ -48,7 +48,33 @@ const handleSubmit = async (e) => {
 		<div class='containerr pt-5 text-center'>
 			{hash.length !== 0 ?<h5>Hash: <code>{hash}</code></h5> : null}
 		</div>
-		
+		<div class='containerr pt-5 text-center'>
+			<button type="submit">Get Receipt</button>
+		</div>
+		<table class="table container w-50 table-bordered table-dark table-striped text-center mt-5">
+		<tbody >
+       <tr>
+           <td>IPFS Hash</td>
+           <td>{hash}</td>
+       </tr>
+       <tr>
+           <td>Contract Address</td>
+           <td>{}</td>
+       </tr>
+   <tr>
+       <td>Tx Hash</td>
+       <td>{}</td>
+   </tr>
+   <tr>
+           <td>Block Number</td>
+           <td>{}</td>
+       </tr>
+   <tr>
+       <td>Gas Used</td>
+       <td>{}</td>
+   </tr>
+   </tbody>
+</table>
         </>
     )
 }
