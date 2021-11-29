@@ -7,5 +7,25 @@
           background-color: #141414;
 }
 
+.blink_me {
+    animation: blinker 2s linear infinite;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border: 1px solid green;
+    background-color: green;
+    border-radius: 100%;
+  }
+  @keyframes blinker {
+    50% {
+      opacity: 0.6;
+    }
+  }
 
+  .bts {
+    color: white;
+    border: none;
+    background-color: #16161d;
+  }
+  
 
