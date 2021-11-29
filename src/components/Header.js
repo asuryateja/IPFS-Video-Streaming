@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import '../../node_modules/react-toastify/dist/ReactToastify.css'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import './Header.css'
 import ipfs from './ipfs.svg'
 import {Link} from 'react-router-dom'
 const Web3 = require('web3')
+
 
 
 

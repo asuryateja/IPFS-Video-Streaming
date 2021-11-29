@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "chai": "^4.3.4",
+    "hardhat": "^2.7.0",
+    "hardhat-abi-exporter": "^2.3.1",
     "ipfs-api": "^26.1.2",
     "ipfs-http-client": "^54.0.2",
     "ipfs-unixfs": "^6.0.6",

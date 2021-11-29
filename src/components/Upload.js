@@ -1,20 +1,21 @@
 import React, {useState} from 'react'
+import storeHash from './storeHash';
 import ipfs from './ipfs'
 import './Upload.css'
+import web3 from './web3';
+
 
 
 function Upload() {
 const [hash, setHash] = useState([]);
+const [click, setClick] = useState(false);
+const [contractAdd, setcontractAdd] = useState(null);
 const [file, setFile] = useState(null);
-const [isCopied, setIsCopied] = useState(false);
+const [transactionHas, settransactionHas] = useState(null);
+const [recep, setrecep] = useState(null);
+const [blockNum, setblockNum] = useState(null);
+const [gasUsed, setgasUsed] = useState(null);
 const reader = new window.FileReader();
-
-const onCopyText = () => {
-    setIsCopied(true);
-    setTimeout(() => {
-      setIsCopied(false);
-    }, 1000);
-  };
 
 const captureFile = (e) => {
 	e.stopPropagation();
@@ -35,7 +36,31 @@ const handleSubmit = async (e) => {
 		console.log(err, ipfsHash);
 		setHash(ipfsHash[0].hash);
 	})
+
+    const accounts = await web3.eth.getAccounts();
+    console.log('Sending from Metamask account: ' + accounts[0]);
+    const ethAddress= await storeHash.options.address;
+    setcontractAdd(ethAddress);
+    storeHash.methods.sendHash(hash).send({from: accounts[0]}, (err, transactionHash) => {
+        settransactionHas(transactionHash);
+    })
+    setblockNum("Waiting...")
+    setgasUsed("Waiting...")
 }
+
+
+
+const getRec = async() => {
+   let tx = await web3.eth.getTransactionReceipt(transactionHas);
+   if(tx != null){
+       console.log(tx.gasUsed)
+       setgasUsed(tx.gasUsed);
+       console.log(tx.blockNumber)
+       setblockNum(tx.blockNumber);
+   }
+   setClick(true);
+}
+
 
     return (
         <>
@@ -49,32 +74,35 @@ const handleSubmit = async (e) => {
 			{hash.length !== 0 ?<h5>Hash: <code>{hash}</code></h5> : null}
 		</div>
 		<div class='containerr pt-5 text-center'>
-			<button type="submit">Get Receipt</button>
+			<button type="submit" onClick={getRec}>Get Receipt</button>
 		</div>
-		<table class="table container w-50 table-bordered table-dark table-striped text-center mt-5">
-		<tbody >
+        {
+            click ? <div><table class="table container w-50 table-bordered table-dark table-striped text-center mt-5">
+            <tbody >
+           <tr>
+               <td>IPFS Hash</td>
+               <td>{hash}</td>
+           </tr>
+           <tr>
+               <td>Contract Address</td>
+               <td>{contractAdd}</td>
+           </tr>
        <tr>
-           <td>IPFS Hash</td>
-           <td>{hash}</td>
+           <td>Tx Hash</td>
+           <td>{transactionHas}</td>
        </tr>
        <tr>
-           <td>Contract Address</td>
-           <td>{}</td>
+               <td>Block Number</td>
+               <td>{blockNum}</td>
+           </tr>
+       <tr>
+           <td>Gas Used</td>
+           <td>{gasUsed}</td>
        </tr>
-   <tr>
-       <td>Tx Hash</td>
-       <td>{}</td>
-   </tr>
-   <tr>
-           <td>Block Number</td>
-           <td>{}</td>
-       </tr>
-   <tr>
-       <td>Gas Used</td>
-       <td>{}</td>
-   </tr>
-   </tbody>
-</table>
+       </tbody>
+    </table></div> : null
+        }
+		
         </>
     )
 }
