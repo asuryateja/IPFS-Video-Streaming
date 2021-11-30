@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import storeHash from './storeHash';
+import { ExternalLink } from 'react-external-link';
 import ipfs from './ipfs'
 import './Upload.css'
 import web3 from './web3';
@@ -61,6 +62,8 @@ const getRec = async() => {
    setClick(true);
 }
 
+const url = `https://ropsten.etherscan.io/address/${contractAdd}`;
+
 
     return (
         <>
@@ -85,7 +88,8 @@ const getRec = async() => {
            </tr>
            <tr>
                <td>Contract Address</td>
-               <td>{contractAdd}</td>
+                
+               <td><ExternalLink class='ea' href={url}>{contractAdd}</ExternalLink></td>
            </tr>
        <tr>
            <td>Tx Hash</td>

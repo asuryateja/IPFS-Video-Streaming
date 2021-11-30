@@ -4,3 +4,11 @@
     justify-content: center;
     align-items: center;
 }
+
+.ea {
+    color: #ffffff !important;
+}
+
+.ea:hover {
+    color: #d63384 !important;
+}
