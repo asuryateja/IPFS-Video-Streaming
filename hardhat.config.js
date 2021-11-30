@@ -10,8 +10,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
     console.log(account.address);
   }
 });
-const ALCHEMY_API_KEY = "";
-const ROPSTEN_PRIVATE_KEY = "";
+const ALCHEMY_API_KEY = "7aMSXrJPpzsJ-biU3gOpIN7H6Kjay0pi";
+const ROPSTEN_PRIVATE_KEY = "61bc3b7c493a0b8a4cf3799653f97a8d1eebea3313b1c9600f757b9ba65f82b3";
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
